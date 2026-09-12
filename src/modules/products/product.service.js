@@ -1,6 +1,10 @@
 import Product from "./product.model.js";
 
-export const getProducts = async () => {
+export const getProducts = async (email) => {
+  if (email) {
+    const products = await Product.find({ ownerEmail: email });
+    return products;
+  }
   return await Product.find();
 };
 

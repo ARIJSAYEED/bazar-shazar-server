@@ -5,7 +5,9 @@ import {
 } from "./product.service.js";
 
 export const getAllProducts = async (req, res) => {
-  const products = await getProducts();
+  const { email } = req.query;
+  // console.log(email);
+  const products = await getProducts(email);
 
   res.send(products);
 };
