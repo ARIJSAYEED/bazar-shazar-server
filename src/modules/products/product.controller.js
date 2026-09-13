@@ -14,6 +14,7 @@ export const getAllProducts = async (req, res) => {
 
 export const createAProduct = async (req, res) => {
   const productDetails = req.body;
+  productDetails.createdAt = new Date();
   const result = await createProducts(productDetails);
   res.status(201).send({
     success: true,
